@@ -1,7 +1,7 @@
 import { App, Editor, MarkdownView, Menu, MenuItem, Modal, Notice, Plugin, PluginSettingTab, Setting, TAbstractFile, TFolder, WorkspaceLeaf } from 'obsidian';
 
 
-import { JupyterAbstractPath } from "./utils/jupyter-path";
+import { JupyterAbstractPath } from "./utils/ipynb-path";
 import { EmbeddedJupyterView } from './utils/ipynb-view';
 
 // Remember to rename these classes and interfaces!

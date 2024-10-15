@@ -69,11 +69,8 @@ export class EmbeddedJupyterView extends FileView {
 				// Use the HTML content in your Obsidian view
 
 				let viewContainer = this.containerEl.children[1];
-				const content = viewContainer.createDiv();
-				// viewContainer.empty();
 				let root = parse(htmlContent);
-				content.innerHTML = root.toString();
-				// viewContainer.outerHTML = htmlContent.outerHTML;
+				viewContainer.innerHTML = root.toString();
 			} catch (error) {
 				console.error("Error displaying HTML content in view", error);
 			}
@@ -102,7 +99,7 @@ export class EmbeddedJupyterView extends FileView {
 
 		try {
 			// Run nbconvert to convert the notebook to HTML
-			await execSync(`/Users/ay/SoftwareData/anaconda/anaconda3/envs/torch/bin/python -m jupyter nbconvert --to html "${ipynbPath}" --output "${this.cacheFilePath}" --template lab`);
+			await execSync(`/Users/ay/SoftwareData/anaconda/anaconda3/envs/torch/bin/python -m jupyter nbconvert --to html "${ipynbPath}" --output "${this.cacheFilePath}" --Highlight2HTML.extra_formatter_options linenos=table --template ay`);
 			let htmlContent = await this.app.vault.adapter.read(read_html_path);
 			return htmlContent
 		} catch (error) {
